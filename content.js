@@ -1,23 +1,28 @@
 (function(){
     id = "hdjdnhkfaojfjglhkddjjbhekdkkhalk"
-    // TODO: wait DOMContentLoaded
-    // TOO: connect のほうがパフォーマンスいいのかも
+    scrollOffset = 100
 
+    keymage('ctrl-d', () => {
+        scrollBy(0, window.innerHeight/2);
+    });
+    keymage('ctrl-u', () => {
+        scrollBy(0, -window.innerHeight/2);
+    });
 
-    // TODO
-    keymage('g g', () => { console.log('gg') });
-    keymage('shift-g', () => { console.log('G') });
+    keymage('g g', () => {
+        scrollTo(0, 0)
+    });
+    keymage('shift-g', () => {
+        scrollTo(0, 999999)
+    });
 
     keymage('j', () => {
-        console.log('j')
-        scrollBy(0, 100) ;
+        scrollBy(0, scrollOffset) ;
     });
-    keymage('k', () => { console.log('G') });
+    keymage('k', () => {
+        scrollBy(0, -scrollOffset) ;
+    });
 
-    keymage('ctrl-u', () => { console.log('C-u') });
-    keymage('ctrl-d', () => { console.log('C-d') });
-
-    // DONE! :D
     keymage('ctrl-h', () => {
         chrome.runtime.sendMessage(id, {key: "C-h"})
     });
