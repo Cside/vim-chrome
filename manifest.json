@@ -1,0 +1,28 @@
+{
+   "name" : "vim chrome",
+   "description" : "vim keybinding",
+   "version" : "0.1",
+   "manifest_version" : 2,
+   "permissions" : [
+      "tabs",
+      "http://*/*",
+      "https://*/*"
+   ],
+   "background": {
+    "persistent": false,
+    "scripts": ["bg.js"]
+  },
+   "content_scripts" : [
+      {
+         "js" : [
+            "libs/keymage.min.js",
+            "content.js"
+         ],
+         "matches" : [
+            "http://*/*",
+            "https://*/*"
+         ]
+      }
+   ],
+   "update_url" : "https://clients2.google.com/service/update2/crx"
+}
