@@ -1,4 +1,3 @@
-const p = (msg) => { console.log(msg) }
 chrome.extension.onMessage.addListener((req, sender, cb) => {
     tab = sender.tab
     winId = tab.windowId
