@@ -5,18 +5,25 @@ chrome.extension.onMessage.addListener((req, sender, cb) => {
     switch (req.key) {
         case "C-h":
         case "C-l":
-            i = tab.index
-
             chrome.tabs.getAllInWindow(winId, tabs => {
-                maxI = tabs.length
-                if (req.key === "C-h") {
-                    nextI = i - 1
-                    if (nextI < 0) nextI = maxI
-                } else {
-                    nextI = i + 1
-                    if (nextI > maxI) nextI = 0
+                maxI = tabs.length - 1
+                nextI = tab.index
+
+                while (true) {
+                    if (req.key === "C-h") {
+                        nextI--
+                        if (nextI < 0) nextI = maxI
+                    } else {
+                        nextI++
+                        if (nextI > maxI) nextI = 0
+                    }
+                    nextTab = tabs[nextI]
+                    if (/^chrome/.test(nextTab.url)) {
+                        continue
+                    }
+                    break
                 }
-                chrome.tabs.update(tabs[nextI].id, {active: true})
+                chrome.tabs.update(nextTab.id, {active: true})
             })
             break
         default:
