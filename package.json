@@ -1,0 +1,18 @@
+{
+  "name": "vim-chrome",
+  "version": "1.0.0",
+  "description": "vim key binding for chrome",
+  "main": "bg.js",
+  "scripts": {
+    "format": "for f in `ls *.js`; do ./node_modules/.bin/js-beautify -r $f; done;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Cside/vim-chrome.git"
+  },
+  "author": "Cside",
+  "license": "ISC",
+  "devDependencies": {
+    "js-beautify": "^1.7.5"
+  }
+}

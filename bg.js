@@ -23,11 +23,13 @@ chrome.extension.onMessage.addListener((req, sender, cb) => {
                     }
                     break
                 }
-                chrome.tabs.update(nextTab.id, {active: true})
+                chrome.tabs.update(nextTab.id, {
+                    active: true
+                })
             })
             break
         default:
             throw new Error(`Unknow key. ${req.key}`)
             break
     }
-}) ;
+});
