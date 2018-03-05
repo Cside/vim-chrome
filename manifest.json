@@ -14,6 +14,7 @@
   },
    "content_scripts" : [
       {
+         "run_at": "document_start",
          "js" : [
             "libs/keymage.min.js",
             "content.js"
