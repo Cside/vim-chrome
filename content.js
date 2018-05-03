@@ -41,4 +41,8 @@
         })
     })
 
+    keymage('s s', () => {
+        document.querySelector('.hatena-star-add-button').click()
+    })
+
 })()
